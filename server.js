@@ -32,7 +32,7 @@ app.get("/file/resume", function(req, res)  {
 		} else {
 			console.log("Finish Downloading");
 		}
-	});
+	}); 
 })
 
 // app.get("/xmlhttp", function(req, res){
