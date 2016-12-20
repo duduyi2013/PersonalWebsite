@@ -16,8 +16,12 @@ var url = require('url');
 
 var path = require('path');
 
-//var urlencodedParser = bodyParse.urlencoded({entended: false})
+var jade = require('jade');
 
+options = {
+	cache: true
+}
+//var urlencodedParser = bodyParse.urlencoded({entended: false})
 
 app.use(function(req, res, next){
    console.log("Request for " + url.parse(req.url).pathname + " received");
@@ -35,6 +39,11 @@ app.get("/file/resume", function(req, res)  {
 	}); 
 })
 
+app.get("/description",function(req, res){
+	options.intro = "YO this is ti";
+	console.log(options);
+	res.send(jade.renderFile("views/description.jade", {cacahe: true, intro: "Yo this is it!"} ));
+});
 // app.get("/xmlhttp", function(req, res){
 // 	console.log("This is it");
 // 	res.send("New XML");
