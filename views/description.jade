@@ -8,12 +8,23 @@ html
   body#top
     header#header
       div.inner
+        if (videoEnable)
+          iframe(src=videoSrc,width="100%", height="393", frameborder="0", allowfullscreen)
     div#main
       section#one
         header.major
           h2 Introduction
             br
         p#Intro= intro
+        ul.actions
+          if (PaperEnable)
+            li: a.button(href=articleURL) Paper Download
+          if (CodeEnable)  
+            li: a.button(href=codeURL) Code Download
+          if (ExeEnbale)  
+            li: a.button(href=exeURL) Executable Download
+          if (WebsiteEnbale)  
+            li: a.button(href=website) Project Website
     script(src="assets/js/jquery.min.js")
     script(src="assets/js/jquery.poptrox.min.js")
     script(src="assets/js/skel.min.js")
